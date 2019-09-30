@@ -1,0 +1,19 @@
+pragma solidity >=0.4.22 <0.6.0;
+
+contract MyContract{
+    function random() public view returns (uint){
+    uint y= (block.timestamp+block.difficulty)%10000001;
+    uint k=y%10;
+    uint ans=y*k;
+    if(ans==0){
+        return 1000001;
+    }
+    return ans/10;
+}
+}
+
+// GENERATING A RANDOM NUMBER WITH ABOVE LOGIC
+//USING TIME STAMP AND BLOCK difficulty TO GENERATE A NUMBER, DIVIDING WITH 10*7+1 to make it a 7 digit number.
+//Multiplying the number with it's modulo to make it random.
+//It will again become a 8 digit number 
+//To make it 7 digit divide by 10 and return
