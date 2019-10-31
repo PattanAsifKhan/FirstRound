@@ -54,6 +54,8 @@ contract Bank{
     //Transer amount eth, it takes two addresses as parameters and transfers eth from one account to another
     function transfereth(address _address,address _address1,uint _amount) public returns(bool){
       if(check(_address,_amount)==true){
+          //not using the send method here directly to reduce gas cost, in real time this operation 
+          //will be replaced using send or transfer methods
             AccountHolders[_address].ethbalance-=_amount;
             AccountHolders[_address1].ethbalance+=_amount;
             return true;
